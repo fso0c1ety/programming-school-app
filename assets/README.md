@@ -1,0 +1,1 @@
+This folder holds app assets (images, icons, etc.). Add files here as needed.

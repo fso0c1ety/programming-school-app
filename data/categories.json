@@ -1,0 +1,10 @@
+[
+  { "id": "1", "name": "Web Dev", "icon": "🌐", "color": "#4A6CF7" },
+  { "id": "2", "name": "Mobile Dev", "icon": "📱", "color": "#8B5CF6" },
+  { "id": "3", "name": "AI/ML", "icon": "🤖", "color": "#10B981" },
+  { "id": "4", "name": "Python", "icon": "🐍", "color": "#FFB84C" },
+  { "id": "5", "name": "Java", "icon": "☕", "color": "#EF4444" },
+  { "id": "6", "name": "C++", "icon": "⚙️", "color": "#6366F1" },
+  { "id": "7", "name": "Algorithms", "icon": "🎯", "color": "#8B5CF6" },
+  { "id": "8", "name": "Cybersecurity", "icon": "🔒", "color": "#EF4444" }
+]

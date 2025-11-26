@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "programming-school-app",
+    "slug": "programming-school-app",
+    "scheme": "programming-school-app",
+    "version": "1.0.0",
+    "plugins": ["expo-router"],
+    "sdkVersion": "54.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "com.valon.programmingschool",
+      "buildNumber": "1.0.0",
+      "supportsTablet": true
+    }
+  }
+}

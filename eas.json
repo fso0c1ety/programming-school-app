@@ -1,0 +1,36 @@
+{
+  "cli": {
+    "version": ">= 3.14.0"
+  },
+  "build": {
+    "development": {
+      "ios": {
+        "buildConfiguration": "Release",
+        "simulator": false,
+        "resourceClass": "m-medium",
+        "distribution": "internal"
+      }
+    },
+    "preview": {
+      "ios": {
+        "buildConfiguration": "Release",
+        "simulator": false,
+        "resourceClass": "m-medium",
+        "distribution": "internal"
+      }
+    },
+    "production": {
+      "ios": {
+        "buildConfiguration": "Release",
+        "simulator": false,
+        "resourceClass": "m-medium",
+        "distribution": "internal"
+      }
+    }
+  },
+  "submit": {
+    "ios": {
+      "ascAppId": null
+    }
+  }
+}

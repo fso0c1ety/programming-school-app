@@ -1,0 +1,63 @@
+name: Build iOS IPA (EAS)
+
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: EAS build profile (development/preview/production)
+        required: true
+        default: development
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Configure Expo/EAS auth
+        env:
+          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+        run: |
+          if [ -z "$EAS_TOKEN" ]; then
+            echo "EAS_TOKEN secret is missing"; exit 1;
+          fi
+          eas whoami || eas login --token "$EAS_TOKEN"
+
+      - name: Set Expo env
+        run: |
+          echo "EXPO_NO_TELEMETRY=1" >> $GITHUB_ENV
+
+      - name: Build iOS IPA via EAS
+        env:
+          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+        run: |
+          PROFILE=${{ github.event.inputs.profile }}
+          echo "Building with profile: $PROFILE"
+          eas build --platform ios --profile "$PROFILE" --non-interactive
+
+      - name: Fetch build artifacts
+        run: |
+          mkdir -p dist
+          eas build:artifacts --platform ios --non-interactive || true
+          # Move any produced .ipa to dist
+          find ./ -name "*.ipa" -maxdepth 3 -print -exec cp {} dist/ \;
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa
+          path: dist
+          if-no-files-found: error

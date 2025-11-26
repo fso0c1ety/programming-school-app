@@ -1,0 +1,263 @@
+[
+  {
+    "id": "1",
+    "title": "Complete Python Bootcamp",
+    "instructor": "Sarah Johnson",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=1",
+    "rating": 4.8,
+    "reviews": 2345,
+    "students": "45.2K",
+    "price": 0,
+    "level": "Beginner",
+    "duration": "12 hours",
+    "category": "Python",
+    "thumbnail": "🐍",
+    "color": "#4A6CF7",
+    "description": "Master Python programming from scratch. Learn variables, functions, OOP, and build real projects.",
+    "featured": true,
+    "popular": true,
+    "whatYouLearn": [
+      "Python fundamentals and syntax",
+      "Object-oriented programming",
+      "Working with files and APIs",
+      "Building real-world projects"
+    ],
+    "curriculum": [
+      { "id": "1-1", "title": "Introduction to Python", "duration": "10:24", "videoUrl": "https://www.youtube.com/watch?v=QXeEoD0pB3E", "completed": false },
+      { "id": "1-2", "title": "First Python Program", "duration": "8:15", "videoUrl": "https://www.youtube.com/watch?v=hEgO047GxaQ", "completed": false },
+      { "id": "1-3", "title": "Variables in Python", "duration": "12:30", "videoUrl": "https://www.youtube.com/watch?v=cQT33yu9pY8", "completed": false },
+      { "id": "1-4", "title": "Data Types", "duration": "15:45", "videoUrl": "https://www.youtube.com/watch?v=gCCVsvgR2KU", "completed": false },
+      { "id": "1-5", "title": "Type Conversion", "duration": "9:20", "videoUrl": "https://www.youtube.com/watch?v=u_ECGvn1Z2c", "completed": false },
+      { "id": "1-6", "title": "Operators in Python", "duration": "14:50", "videoUrl": "https://www.youtube.com/watch?v=v5MR5JnKcZI", "completed": false },
+      { "id": "1-7", "title": "If Else Statement", "duration": "11:35", "videoUrl": "https://www.youtube.com/watch?v=PqFKRqpHrjw", "completed": false },
+      { "id": "1-8", "title": "Loops in Python", "duration": "16:20", "videoUrl": "https://www.youtube.com/watch?v=94UHCEmprCY", "completed": false },
+      { "id": "1-9", "title": "While Loop", "duration": "10:15", "videoUrl": "https://www.youtube.com/watch?v=HZARImviDxg", "completed": false },
+      { "id": "1-10", "title": "For Loop", "duration": "13:40", "videoUrl": "https://www.youtube.com/watch?v=0ZvaDa8eT5s", "completed": false },
+      { "id": "1-11", "title": "Break Continue Pass", "duration": "8:55", "videoUrl": "https://www.youtube.com/watch?v=yCZBnjF4_tU", "completed": false },
+      { "id": "1-12", "title": "Patterns in Python", "duration": "12:10", "videoUrl": "https://www.youtube.com/watch?v=Zt0LGW2vEaI", "completed": false },
+      { "id": "1-13", "title": "List in Python", "duration": "15:30", "videoUrl": "https://www.youtube.com/watch?v=tw7ror9x32s", "completed": false },
+      { "id": "1-14", "title": "Tuple in Python", "duration": "10:45", "videoUrl": "https://www.youtube.com/watch?v=sn7VIXDs9bY", "completed": false },
+      { "id": "1-15", "title": "Set in Python", "duration": "11:20", "videoUrl": "https://www.youtube.com/watch?v=sBvaPopWOmQ", "completed": false },
+      { "id": "1-16", "title": "Dictionary in Python", "duration": "13:55", "videoUrl": "https://www.youtube.com/watch?v=XCcpzWs-CI4", "completed": false },
+      { "id": "1-17", "title": "Functions in Python", "duration": "14:25", "videoUrl": "https://www.youtube.com/watch?v=BVfCWuca9nw", "completed": false },
+      { "id": "1-18", "title": "Types of Arguments", "duration": "12:40", "videoUrl": "https://www.youtube.com/watch?v=kB829ciAXo4", "completed": false },
+      { "id": "1-19", "title": "Lambda Function", "duration": "9:30", "videoUrl": "https://www.youtube.com/watch?v=Ob9rY6PQMfI", "completed": false },
+      { "id": "1-20", "title": "Filter Map Reduce", "duration": "16:15", "videoUrl": "https://www.youtube.com/watch?v=hUes6y2b--0", "completed": false },
+      { "id": "1-21", "title": "Decorators in Python", "duration": "14:50", "videoUrl": "https://www.youtube.com/watch?v=FsAPt_9Bf3U", "completed": false },
+      { "id": "1-22", "title": "Modules in Python", "duration": "11:35", "videoUrl": "https://www.youtube.com/watch?v=PycXNlvVY7A", "completed": false },
+      { "id": "1-23", "title": "Class and Object", "duration": "15:20", "videoUrl": "https://www.youtube.com/watch?v=qiSCMNBIP2g", "completed": false },
+      { "id": "1-24", "title": "Constructor in Python", "duration": "12:45", "videoUrl": "https://www.youtube.com/watch?v=2ux_w8PJCaQ", "completed": false },
+      { "id": "1-25", "title": "Types of Variables", "duration": "13:10", "videoUrl": "https://www.youtube.com/watch?v=O_x2_0j7Bwk", "completed": false },
+      { "id": "1-26", "title": "Types of Methods", "duration": "14:55", "videoUrl": "https://www.youtube.com/watch?v=Xz69IEv0IcE", "completed": false },
+      { "id": "1-27", "title": "Inner Class", "duration": "10:30", "videoUrl": "https://www.youtube.com/watch?v=6n76d8c1Ksk", "completed": false },
+      { "id": "1-28", "title": "Inheritance in Python", "duration": "16:40", "videoUrl": "https://www.youtube.com/watch?v=Cn7AkDb4pIU", "completed": false },
+      { "id": "1-29", "title": "Constructor in Inheritance", "duration": "11:25", "videoUrl": "https://www.youtube.com/watch?v=RSl87lqOXDE", "completed": false },
+      { "id": "1-30", "title": "Polymorphism in Python", "duration": "13:50", "videoUrl": "https://www.youtube.com/watch?v=HFbnmTwoc58", "completed": false },
+      { "id": "1-31", "title": "Method Overloading", "duration": "9:45", "videoUrl": "https://www.youtube.com/watch?v=D_Aou-QYDCw", "completed": false },
+      { "id": "1-32", "title": "Method Overriding", "duration": "10:20", "videoUrl": "https://www.youtube.com/watch?v=d_AGI8HNSPA", "completed": false },
+      { "id": "1-33", "title": "Exception Handling", "duration": "14:30", "videoUrl": "https://www.youtube.com/watch?v=6SPDvPK38tw", "completed": false },
+      { "id": "1-34", "title": "File Handling in Python", "duration": "15:15", "videoUrl": "https://www.youtube.com/watch?v=ixEeeNjjOJ0", "completed": false },
+      { "id": "1-35", "title": "Binary File Handling", "duration": "12:50", "videoUrl": "https://www.youtube.com/watch?v=NqfUaG_15Ng", "completed": false }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "React Native Masterclass",
+    "instructor": "Mike Chen",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=2",
+    "rating": 4.9,
+    "reviews": 1890,
+    "students": "32.1K",
+    "price": 0,
+    "level": "Intermediate",
+    "duration": "18 hours",
+    "category": "Mobile Dev",
+    "thumbnail": "⚛️",
+    "color": "#8B5CF6",
+    "description": "Build beautiful mobile apps with React Native. Learn components, navigation, and state management.",
+    "featured": true,
+    "popular": true,
+    "whatYouLearn": [
+      "React Native fundamentals",
+      "Building mobile UI components",
+      "Navigation and routing",
+      "API integration and state management"
+    ],
+    "curriculum": [
+      { "id": "2-1", "title": "Getting Started with React Native", "duration": "20:00", "videoUrl": "intro.mp4", "completed": false },
+      { "id": "2-2", "title": "Core Components", "duration": "25:30", "videoUrl": "components.mp4", "completed": false },
+      { "id": "2-3", "title": "Styling in React Native", "duration": "18:45", "videoUrl": "styling.mp4", "completed": false },
+      { "id": "2-4", "title": "Navigation Setup", "duration": "32:15", "videoUrl": "navigation.mp4", "completed": false }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "JavaScript Essentials",
+    "instructor": "John Doe",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=3",
+    "rating": 4.7,
+    "reviews": 3245,
+    "students": "52.8K",
+    "price": 0,
+    "level": "Beginner",
+    "duration": "10 hours",
+    "category": "Web Dev",
+    "thumbnail": "⚡",
+    "color": "#FFB84C",
+    "description": "Learn JavaScript from the ground up. Master ES6+, async programming, and modern techniques.",
+    "featured": false,
+    "popular": true,
+    "whatYouLearn": [
+      "JavaScript fundamentals",
+      "ES6+ features",
+      "Asynchronous programming",
+      "DOM manipulation"
+    ],
+    "curriculum": [
+      { "id": "3-1", "title": "JavaScript Basics", "duration": "18:30", "videoUrl": "basics.mp4", "completed": false },
+      { "id": "3-2", "title": "Functions & Scope", "duration": "24:15", "videoUrl": "functions.mp4", "completed": false },
+      { "id": "3-3", "title": "Arrays & Objects", "duration": "26:45", "videoUrl": "arrays.mp4", "completed": false }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Java for Beginners",
+    "instructor": "Anna Lee",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=4",
+    "rating": 4.6,
+    "reviews": 1567,
+    "students": "28.3K",
+    "price": 0,
+    "level": "Beginner",
+    "duration": "14 hours",
+    "category": "Java",
+    "thumbnail": "☕",
+    "color": "#10B981",
+    "description": "Start your Java journey. Learn OOP concepts, data structures, and build console applications.",
+    "featured": false,
+    "popular": true,
+    "whatYouLearn": [
+      "Java syntax and basics",
+      "Object-oriented concepts",
+      "Collections framework",
+      "Exception handling"
+    ],
+    "curriculum": [
+      { "id": "4-1", "title": "Introduction to Java", "duration": "16:00", "videoUrl": "intro.mp4", "completed": false },
+      { "id": "4-2", "title": "Classes and Objects", "duration": "28:30", "videoUrl": "oop.mp4", "completed": false }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "C++ Programming",
+    "instructor": "David Kim",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=5",
+    "rating": 4.8,
+    "reviews": 987,
+    "students": "15.7K",
+    "price": 0,
+    "level": "Intermediate",
+    "duration": "16 hours",
+    "category": "C++",
+    "thumbnail": "⚙️",
+    "color": "#EF4444",
+    "description": "Master C++ programming. Learn pointers, memory management, and advanced concepts.",
+    "featured": false,
+    "popular": true,
+    "whatYouLearn": [
+      "C++ fundamentals",
+      "Pointers and references",
+      "Memory management",
+      "STL and templates"
+    ],
+    "curriculum": [
+      { "id": "5-1", "title": "C++ Basics", "duration": "19:15", "videoUrl": "basics.mp4", "completed": false },
+      { "id": "5-2", "title": "Pointers and Memory", "duration": "31:45", "videoUrl": "pointers.mp4", "completed": false }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Data Structures & Algorithms",
+    "instructor": "Lisa Wang",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=6",
+    "rating": 4.9,
+    "reviews": 2156,
+    "students": "38.9K",
+    "price": 0,
+    "level": "Advanced",
+    "duration": "24 hours",
+    "category": "Algorithms",
+    "thumbnail": "🎯",
+    "color": "#8B5CF6",
+    "description": "Master essential data structures and algorithms. Prepare for coding interviews.",
+    "featured": false,
+    "popular": true,
+    "whatYouLearn": [
+      "Arrays, linked lists, trees",
+      "Sorting and searching",
+      "Graph algorithms",
+      "Dynamic programming"
+    ],
+    "curriculum": [
+      { "id": "6-1", "title": "Array Operations", "duration": "22:00", "videoUrl": "arrays.mp4", "completed": false },
+      { "id": "6-2", "title": "Linked Lists", "duration": "26:30", "videoUrl": "lists.mp4", "completed": false }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Machine Learning Fundamentals",
+    "instructor": "Alex Rodriguez",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=7",
+    "rating": 4.7,
+    "reviews": 1432,
+    "students": "22.4K",
+    "price": 0,
+    "level": "Advanced",
+    "duration": "20 hours",
+    "category": "AI/ML",
+    "thumbnail": "🤖",
+    "color": "#10B981",
+    "description": "Learn machine learning basics. Build models with Python and scikit-learn.",
+    "featured": false,
+    "popular": false,
+    "whatYouLearn": [
+      "ML concepts and theory",
+      "Supervised learning",
+      "Unsupervised learning",
+      "Model evaluation"
+    ],
+    "curriculum": [
+      { "id": "7-1", "title": "Introduction to ML", "duration": "25:00", "videoUrl": "intro.mp4", "completed": false },
+      { "id": "7-2", "title": "Linear Regression", "duration": "30:15", "videoUrl": "regression.mp4", "completed": false }
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Web Development Bootcamp",
+    "instructor": "Emma Wilson",
+    "instructorAvatar": "https://i.pravatar.cc/150?img=8",
+    "rating": 4.8,
+    "reviews": 3890,
+    "students": "67.5K",
+    "price": 0,
+    "level": "Beginner",
+    "duration": "30 hours",
+    "category": "Web Dev",
+    "thumbnail": "🌐",
+    "color": "#4A6CF7",
+    "description": "Complete web development course. Learn HTML, CSS, JavaScript, and build real websites.",
+    "featured": true,
+    "popular": true,
+    "whatYouLearn": [
+      "HTML and CSS fundamentals",
+      "JavaScript programming",
+      "Responsive design",
+      "Building full websites"
+    ],
+    "curriculum": [
+      { "id": "8-1", "title": "HTML Basics", "duration": "15:00", "videoUrl": "html.mp4", "completed": false },
+      { "id": "8-2", "title": "CSS Styling", "duration": "20:30", "videoUrl": "css.mp4", "completed": false },
+      { "id": "8-3", "title": "JavaScript Fundamentals", "duration": "28:00", "videoUrl": "js.mp4", "completed": false }
+    ]
+  }
+]
