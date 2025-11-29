@@ -58,6 +58,117 @@
       { "id": "1-33", "title": "Exception Handling", "duration": "14:30", "videoUrl": "https://www.youtube.com/watch?v=6SPDvPK38tw", "completed": false },
       { "id": "1-34", "title": "File Handling in Python", "duration": "15:15", "videoUrl": "https://www.youtube.com/watch?v=ixEeeNjjOJ0", "completed": false },
       { "id": "1-35", "title": "Binary File Handling", "duration": "12:50", "videoUrl": "https://www.youtube.com/watch?v=NqfUaG_15Ng", "completed": false }
+    ],
+    "tasks": [
+      {
+        "id": "1-t1",
+        "title": "FizzBuzz Challenge",
+        "description": "Write a program that prints numbers from 1 to 100. For multiples of 3, print 'Fizz' instead of the number. For multiples of 5, print 'Buzz'. For multiples of both 3 and 5, print 'FizzBuzz'.",
+        "difficulty": "Easy",
+        "points": 50,
+        "hints": [
+          "Use a for loop to iterate from 1 to 100",
+          "Use the modulo operator (%) to check for divisibility",
+          "Check for multiples of 15 first (both 3 and 5)"
+        ],
+        "testCases": [
+          "Input: range(1, 101) → Output: 1, 2, Fizz, 4, Buzz, ..., FizzBuzz",
+          "Number 3 → Fizz",
+          "Number 5 → Buzz",
+          "Number 15 → FizzBuzz"
+        ]
+      },
+      {
+        "id": "1-t2",
+        "title": "Palindrome Checker",
+        "description": "Create a function that checks if a given string is a palindrome (reads the same forwards and backwards). The check should be case-insensitive.",
+        "difficulty": "Easy",
+        "points": 75,
+        "hints": [
+          "Convert the string to lowercase first",
+          "Compare the string with its reverse",
+          "You can use slicing [::-1] to reverse a string"
+        ],
+        "testCases": [
+          "is_palindrome('racecar') → True",
+          "is_palindrome('hello') → False",
+          "is_palindrome('A man a plan a canal Panama') → True",
+          "is_palindrome('RaceCar') → True"
+        ]
+      },
+      {
+        "id": "1-t3",
+        "title": "List Comprehension Exercise",
+        "description": "Given a list of numbers, create a new list containing only the even numbers squared. Use list comprehension to solve this in one line.",
+        "difficulty": "Medium",
+        "points": 100,
+        "hints": [
+          "List comprehension syntax: [expression for item in list if condition]",
+          "Use the modulo operator to check if a number is even",
+          "Square a number using ** 2 or the pow() function"
+        ],
+        "testCases": [
+          "Input: [1, 2, 3, 4, 5, 6] → Output: [4, 16, 36]",
+          "Input: [10, 15, 20, 25] → Output: [100, 400]",
+          "Input: [] → Output: []"
+        ]
+      },
+      {
+        "id": "1-t4",
+        "title": "Dictionary Word Counter",
+        "description": "Write a function that counts the frequency of each word in a given text string and returns a dictionary with words as keys and their counts as values.",
+        "difficulty": "Medium",
+        "points": 125,
+        "hints": [
+          "Split the text into words using .split()",
+          "Convert words to lowercase for accurate counting",
+          "Use a dictionary to store word counts",
+          "You can use dict.get(key, default) to handle missing keys"
+        ],
+        "testCases": [
+          "count_words('hello world hello') → {'hello': 2, 'world': 1}",
+          "count_words('Python is great and Python is fun') → {'python': 2, 'is': 2, ...}",
+          "count_words('') → {}"
+        ]
+      },
+      {
+        "id": "1-t5",
+        "title": "Prime Number Generator",
+        "description": "Create a function that generates all prime numbers up to a given number n. A prime number is only divisible by 1 and itself.",
+        "difficulty": "Hard",
+        "points": 150,
+        "hints": [
+          "Start by checking if each number is divisible by any number from 2 to its square root",
+          "Use a nested loop or create a helper function to check if a number is prime",
+          "Optimize by only checking odd numbers after 2",
+          "Consider using the Sieve of Eratosthenes algorithm for better performance"
+        ],
+        "testCases": [
+          "get_primes(10) → [2, 3, 5, 7]",
+          "get_primes(20) → [2, 3, 5, 7, 11, 13, 17, 19]",
+          "get_primes(2) → [2]",
+          "get_primes(1) → []"
+        ]
+      },
+      {
+        "id": "1-t6",
+        "title": "Class Implementation: Bank Account",
+        "description": "Create a BankAccount class with methods for deposit, withdraw, and check_balance. Include proper error handling for insufficient funds and negative amounts.",
+        "difficulty": "Hard",
+        "points": 200,
+        "hints": [
+          "Use __init__ to initialize the account with a starting balance",
+          "Add validation to prevent negative deposits or withdrawals",
+          "Raise exceptions for invalid operations",
+          "Keep track of the current balance as an instance variable"
+        ],
+        "testCases": [
+          "account = BankAccount(100); account.deposit(50) → balance: 150",
+          "account.withdraw(30) → balance: 120",
+          "account.withdraw(200) → InsufficientFundsError",
+          "account.deposit(-10) → ValueError"
+        ]
+      }
     ]
   },
   {
@@ -88,6 +199,104 @@
       { "id": "2-2", "title": "Core Components", "duration": "25:30", "videoUrl": "components.mp4", "completed": false },
       { "id": "2-3", "title": "Styling in React Native", "duration": "18:45", "videoUrl": "styling.mp4", "completed": false },
       { "id": "2-4", "title": "Navigation Setup", "duration": "32:15", "videoUrl": "navigation.mp4", "completed": false }
+    ],
+    "tasks": [
+      {
+        "id": "2-t1",
+        "title": "Custom Button Component",
+        "description": "Create a reusable Button component with props for title, onPress, variant (primary/secondary), and disabled state. Use StyleSheet and TouchableOpacity.",
+        "difficulty": "Easy",
+        "points": 75,
+        "hints": [
+          "Import View, Text, TouchableOpacity, and StyleSheet from react-native",
+          "Define TypeScript interfaces for your props",
+          "Use conditional styling based on variant and disabled props",
+          "Apply different background colors for primary and secondary variants"
+        ],
+        "testCases": [
+          "<Button title='Click Me' onPress={handlePress} variant='primary' />",
+          "<Button title='Submit' onPress={handleSubmit} disabled={true} />",
+          "Primary button should have a different color than secondary"
+        ]
+      },
+      {
+        "id": "2-t2",
+        "title": "Card List with FlatList",
+        "description": "Build a scrollable list of cards using FlatList. Each card should display a title, description, and image. Implement pull-to-refresh functionality.",
+        "difficulty": "Medium",
+        "points": 125,
+        "hints": [
+          "Use FlatList component with data, renderItem, and keyExtractor props",
+          "Add RefreshControl for pull-to-refresh",
+          "Create a Card component to render each item",
+          "Use Image component from react-native for displaying images"
+        ],
+        "testCases": [
+          "List should render all items from data array",
+          "Pull down to trigger refresh",
+          "Each card should show title, description, and image",
+          "List should be scrollable"
+        ]
+      },
+      {
+        "id": "2-t3",
+        "title": "Form with Validation",
+        "description": "Create a form with email and password inputs. Implement validation: email must be valid format, password must be 8+ characters. Display error messages.",
+        "difficulty": "Medium",
+        "points": 150,
+        "hints": [
+          "Use useState hooks for form values and error states",
+          "Create validation functions for email and password",
+          "Use TextInput with secureTextEntry for password",
+          "Show error messages conditionally using state"
+        ],
+        "testCases": [
+          "Empty email → 'Email is required'",
+          "Invalid email format → 'Invalid email address'",
+          "Password < 8 chars → 'Password must be at least 8 characters'",
+          "Valid inputs → No errors, form submits successfully"
+        ]
+      },
+      {
+        "id": "2-t4",
+        "title": "Dark Mode Toggle",
+        "description": "Implement a theme context that allows toggling between light and dark mode. Update all component styles based on the current theme.",
+        "difficulty": "Hard",
+        "points": 175,
+        "hints": [
+          "Create a ThemeContext using React.createContext",
+          "Use useContext hook to access theme in components",
+          "Define color palettes for light and dark modes",
+          "Store theme preference in AsyncStorage"
+        ],
+        "testCases": [
+          "Toggle switch changes theme across all screens",
+          "Theme preference persists after app restart",
+          "All components use theme colors correctly",
+          "Smooth transition between themes"
+        ]
+      },
+      {
+        "id": "2-t5",
+        "title": "API Integration with Error Handling",
+        "description": "Fetch data from a public API, display loading state, handle errors gracefully, and show retry option on failure. Use fetch or axios.",
+        "difficulty": "Hard",
+        "points": 200,
+        "hints": [
+          "Use useEffect hook for API calls on component mount",
+          "Manage loading, data, and error states with useState",
+          "Wrap fetch in try-catch for error handling",
+          "Create a retry function that re-fetches the data",
+          "Show ActivityIndicator during loading"
+        ],
+        "testCases": [
+          "Show loading indicator while fetching",
+          "Display data when API call succeeds",
+          "Show error message when API call fails",
+          "Retry button re-fetches the data",
+          "Handle network errors appropriately"
+        ]
+      }
     ]
   },
   {
@@ -117,6 +326,80 @@
       { "id": "3-1", "title": "JavaScript Basics", "duration": "18:30", "videoUrl": "basics.mp4", "completed": false },
       { "id": "3-2", "title": "Functions & Scope", "duration": "24:15", "videoUrl": "functions.mp4", "completed": false },
       { "id": "3-3", "title": "Arrays & Objects", "duration": "26:45", "videoUrl": "arrays.mp4", "completed": false }
+    ],
+    "tasks": [
+      {
+        "id": "3-t1",
+        "title": "Array Methods Practice",
+        "description": "Given an array of numbers, use map, filter, and reduce to: 1) Double all numbers, 2) Filter even numbers, 3) Sum the result. Chain these operations.",
+        "difficulty": "Easy",
+        "points": 75,
+        "hints": [
+          "Use .map() to transform each element",
+          "Use .filter() to keep only even numbers",
+          "Use .reduce() to sum all numbers",
+          "You can chain these methods together"
+        ],
+        "testCases": [
+          "[1, 2, 3, 4, 5] → map(*2) → filter(even) → reduce(sum) = 12",
+          "[10, 15, 20] → 60",
+          "[] → 0"
+        ]
+      },
+      {
+        "id": "3-t2",
+        "title": "Object Destructuring",
+        "description": "Create a function that takes a user object and returns a formatted string using destructuring. Handle missing properties with default values.",
+        "difficulty": "Easy",
+        "points": 50,
+        "hints": [
+          "Use destructuring in function parameters",
+          "Set default values with = in destructuring",
+          "Use template literals for string formatting"
+        ],
+        "testCases": [
+          "formatUser({name: 'John', age: 30}) → 'John is 30 years old'",
+          "formatUser({name: 'Jane'}) → 'Jane is Unknown years old'",
+          "Handle nested object destructuring"
+        ]
+      },
+      {
+        "id": "3-t3",
+        "title": "Promise and Async/Await",
+        "description": "Create an async function that fetches data from multiple endpoints sequentially and returns combined results. Handle errors appropriately.",
+        "difficulty": "Medium",
+        "points": 125,
+        "hints": [
+          "Use async/await for cleaner asynchronous code",
+          "Use try-catch for error handling",
+          "Await each fetch call",
+          "Combine results using array methods or object spread"
+        ],
+        "testCases": [
+          "fetchData(['url1', 'url2']) → combined array of results",
+          "Handle failed requests gracefully",
+          "Return empty array on error"
+        ]
+      },
+      {
+        "id": "3-t4",
+        "title": "Closure and Currying",
+        "description": "Implement a curry function that converts a function with multiple arguments into a sequence of functions each taking a single argument.",
+        "difficulty": "Hard",
+        "points": 175,
+        "hints": [
+          "Use closures to store previous arguments",
+          "Return a new function until all arguments are collected",
+          "Check the number of arguments needed",
+          "Use spread operator to collect arguments"
+        ],
+        "testCases": [
+          "const add = (a, b, c) => a + b + c",
+          "const curriedAdd = curry(add)",
+          "curriedAdd(1)(2)(3) → 6",
+          "curriedAdd(1, 2)(3) → 6"
+        ]
+      }
     ]
   },
   {

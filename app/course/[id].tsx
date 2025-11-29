@@ -7,7 +7,9 @@ import { COLORS, SIZES, SHADOWS } from '../../constants/theme';
 import { useTheme } from '../../context/ThemeContext';
 import { useCourseStore } from '../../store/courseStore';
 import { useAuthStore } from '../../store/authStore';
+import { useTaskStore } from '../../store/taskStore';
 import LessonItem from '../../components/LessonItem';
+import TaskItem from '../../components/TaskItem';
 import Button from '../../components/Button';
 
 export default function CourseDetail() {
@@ -16,7 +18,10 @@ export default function CourseDetail() {
   const { colors } = useTheme();
   const { courses, enrolledCourses, enrollInCourse } = useCourseStore();
   const { isAuthenticated } = useAuthStore();
-  const [selectedTab, setSelectedTab] = useState<'overview' | 'curriculum'>('overview');
+  const { getCourseTaskProgress } = useTaskStore();
+  const [selectedTab, setSelectedTab] = useState<'overview' | 'curriculum' | 'tasks'>('overview');
+  
+  const taskProgress = getCourseTaskProgress(id as string);
 
   const course = courses.find(c => c.id === id);
   const isEnrolled = enrolledCourses.includes(id as string);
@@ -121,6 +126,25 @@ export default function CourseDetail() {
               Curriculum
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity 
+            style={[
+              styles.tab,
+              selectedTab === 'tasks' && { borderBottomColor: colors.primary, borderBottomWidth: 2 }
+            ]}
+            onPress={() => setSelectedTab('tasks')}
+          >
+            <Text style={[
+              styles.tabText,
+              { color: selectedTab === 'tasks' ? colors.primary : colors.textLight }
+            ]}>
+              Tasks
+              {course.tasks && course.tasks.length > 0 && (
+                <Text style={[styles.tabBadge, { color: colors.primary }]}>
+                  {' '}({course.tasks.length})
+                </Text>
+              )}
+            </Text>
+          </TouchableOpacity>
         </View>
 
         {/* Content */}
@@ -169,7 +193,7 @@ export default function CourseDetail() {
                 </View>
               </TiltCard>
             </View>
-          ) : (
+          ) : selectedTab === 'curriculum' ? (
             <View style={styles.curriculumSection}>
               <Text style={[styles.sectionTitle, { color: colors.text }]}>
                 Course Curriculum ({course.curriculum.length} lessons)
@@ -195,6 +219,63 @@ export default function CourseDetail() {
                   />
                 </TiltCard>
               ))}
+            </View>
+          ) : (
+            <View style={styles.tasksSection}>
+              {/* Task Statistics */}
+              <View style={[styles.statsContainer, { backgroundColor: colors.cardBg }]}>
+                <View style={styles.statItem}>
+                  <Text style={[styles.statValue, { color: colors.primary }]}>
+                    {taskProgress?.completedTasks.length || 0}/{course.tasks?.length || 0}
+                  </Text>
+                  <Text style={[styles.statLabel, { color: colors.textLight }]}>Completed</Text>
+                </View>
+                <View style={styles.statDivider} />
+                <View style={styles.statItem}>
+                  <Text style={[styles.statValue, { color: colors.warning }]}>
+                    {taskProgress?.totalPoints || 0}
+                  </Text>
+                  <Text style={[styles.statLabel, { color: colors.textLight }]}>Points Earned</Text>
+                </View>
+              </View>
+
+              <Text style={[styles.sectionTitle, { color: colors.text, marginTop: SIZES.xl }]}>
+                Practical Coding Tasks ({course.tasks?.length || 0})
+              </Text>
+              
+              {course.tasks && course.tasks.length > 0 ? (
+                <>
+                  <Text style={[styles.sectionDescription, { color: colors.textLight }]}>
+                    Practice what you've learned with hands-on coding challenges
+                  </Text>
+                  
+                  {course.tasks.map((task, index) => {
+                    const isTaskCompleted = taskProgress?.completedTasks.includes(task.id) || false;
+                    return (
+                      <TiltCard key={task.id} style={{ marginBottom: SIZES.sm }}>
+                        <TaskItem
+                          task={{ ...task, completed: isTaskCompleted }}
+                          taskNumber={index + 1}
+                          onPress={() => {
+                            if (isEnrolled) {
+                              router.push(`/task/${task.id}?courseId=${course.id}`);
+                            } else {
+                              Alert.alert('Enroll Required', 'Please enroll in this course to access tasks');
+                            }
+                          }}
+                        />
+                      </TiltCard>
+                    );
+                  })}
+                </>
+              ) : (
+                <View style={[styles.emptyState, { backgroundColor: colors.cardBg }]}>
+                  <Ionicons name="code-slash" size={64} color={colors.textLight} />
+                  <Text style={[styles.emptyStateText, { color: colors.textLight }]}>
+                    No tasks available yet
+                  </Text>
+                </View>
+              )}
             </View>
           )}
         </View>
@@ -323,17 +404,10 @@ const styles = StyleSheet.create({
     fontSize: SIZES.md,
     lineHeight: SIZES.md * 1.5,
   },
-  instructorCard: {
-    flexDirection: 'row',
-    padding: SIZES.md,
-    borderRadius: SIZES.sm,
-    gap: SIZES.md,
-    ...SHADOWS.small,
-  },
   instructorCard3D: {
     flexDirection: 'row',
     padding: SIZES.md,
-    borderRadius: SIZES.sm,
+    borderRadius: SIZES.radiusLg,
     gap: SIZES.md,
     shadowColor: '#000',
     shadowOpacity: 0.15,
@@ -367,6 +441,49 @@ const styles = StyleSheet.create({
     fontSize: SIZES.sm,
   },
   curriculumSection: {},
+  tasksSection: {},
+  statsContainer: {
+    flexDirection: 'row',
+    padding: SIZES.xl,
+    borderRadius: SIZES.radiusLg,
+    ...SHADOWS.small,
+  },
+  statItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  statDivider: {
+    width: 1,
+    backgroundColor: COLORS.border,
+    marginHorizontal: SIZES.lg,
+  },
+  statValue: {
+    fontSize: SIZES.h2,
+    fontWeight: 'bold',
+    marginBottom: SIZES.xs,
+  },
+  statLabel: {
+    fontSize: SIZES.small,
+  },
+  sectionDescription: {
+    fontSize: SIZES.small,
+    marginBottom: SIZES.lg,
+    lineHeight: SIZES.small * 1.4,
+  },
+  tabBadge: {
+    fontSize: SIZES.tiny,
+  },
+  emptyState: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: SIZES.xxxl,
+    borderRadius: SIZES.radiusLg,
+    marginTop: SIZES.lg,
+  },
+  emptyStateText: {
+    fontSize: SIZES.body,
+    marginTop: SIZES.base,
+  },
   bottomBar: {
     position: 'absolute',
     bottom: 0,

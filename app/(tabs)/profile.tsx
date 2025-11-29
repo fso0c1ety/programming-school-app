@@ -6,12 +6,14 @@ import { COLORS, SIZES, SHADOWS } from '../../constants/theme';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuthStore } from '../../store/authStore';
 import { useCourseStore } from '../../store/courseStore';
+import { useTaskStore } from '../../store/taskStore';
 
 export default function Profile() {
   const router = useRouter();
   const { isDark, toggleTheme, colors } = useTheme();
   const { user, isAuthenticated, logout } = useAuthStore();
   const { courses, enrolledCourses, completedCourses } = useCourseStore();
+  const { progress } = useTaskStore();
   const [notifications, setNotifications] = useState(true);
 
   // Redirect if not authenticated
@@ -24,6 +26,14 @@ export default function Profile() {
   // Calculate user stats
   const enrolledCoursesCount = enrolledCourses.length;
   const completedCoursesCount = completedCourses.length;
+  
+  // Calculate total tasks completed and points earned
+  const totalTasksCompleted = Object.values(progress).reduce((sum, courseProgress) => 
+    sum + courseProgress.completedTasks.length, 0
+  );
+  const totalPointsEarned = Object.values(progress).reduce((sum, courseProgress) => 
+    sum + courseProgress.totalPoints, 0
+  );
   const parseDurationToHours = (duration: any) => {
     if (typeof duration === 'number') return duration;
     if (typeof duration !== 'string') return 0;
@@ -117,14 +127,14 @@ export default function Profile() {
         <Text style={[styles.name, { color: colors.text }]}>{user?.name || 'User'}</Text>
         <Text style={[styles.email, { color: colors.textLight }]}>{user?.email || 'user@example.com'}</Text>
         
-        <View style={styles.statsContainer}>
+        <View style={styles.statsRow}>
           <View style={styles.statItem}>
             <Text style={[styles.statValue, { color: colors.primary }]}>{enrolledCoursesCount}</Text>
-            <Text style={[styles.statLabel, { color: colors.textLight }]}>Courses</Text>
+            <Text style={[styles.statLabel, { color: colors.textLight }]}>Enrolled</Text>
           </View>
           <View style={[styles.statDivider, { backgroundColor: colors.border }]} />
           <View style={styles.statItem}>
-            <Text style={[styles.statValue, { color: colors.primary }]}>{completedCoursesCount}</Text>
+            <Text style={[styles.statValue, { color: colors.success }]}>{completedCoursesCount}</Text>
             <Text style={[styles.statLabel, { color: colors.textLight }]}>Completed</Text>
           </View>
           <View style={[styles.statDivider, { backgroundColor: colors.border }]} />
@@ -133,6 +143,24 @@ export default function Profile() {
             <Text style={[styles.statLabel, { color: colors.textLight }]}>Hours</Text>
           </View>
         </View>
+
+        {/* Task Stats */}
+        {totalTasksCompleted > 0 && (
+          <View style={[styles.taskStatsRow, { borderTopColor: colors.border }]}>
+            <View style={styles.taskStatItem}>
+              <Ionicons name="code-slash" size={20} color={colors.secondary} />
+              <Text style={[styles.taskStatValue, { color: colors.text }]}>
+                {totalTasksCompleted} Tasks Completed
+              </Text>
+            </View>
+            <View style={styles.taskStatItem}>
+              <Ionicons name="trophy" size={20} color={colors.warning} />
+              <Text style={[styles.taskStatValue, { color: colors.text }]}>
+                {totalPointsEarned} Points Earned
+              </Text>
+            </View>
+          </View>
+        )}
       </TiltCard>
 
       {/* Menu Items */}
@@ -277,6 +305,14 @@ const styles = StyleSheet.create({
     color: COLORS.textLight,
     marginBottom: SIZES.lg,
   },
+  statsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    paddingTop: SIZES.lg,
+    borderTopWidth: 1,
+    borderTopColor: COLORS.border,
+  },
   statsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -303,6 +339,21 @@ const styles = StyleSheet.create({
   statLabel: {
     fontSize: SIZES.tiny,
     color: COLORS.textLight,
+  },
+  taskStatsRow: {
+    borderTopWidth: 1,
+    paddingTop: SIZES.base,
+    marginTop: SIZES.base,
+    gap: SIZES.sm,
+  },
+  taskStatItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SIZES.sm,
+  },
+  taskStatValue: {
+    fontSize: SIZES.small,
+    fontWeight: '600',
   },
   section: {
     marginBottom: SIZES.xl,

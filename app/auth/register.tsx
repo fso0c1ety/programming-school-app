@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SIZES, SHADOWS } from '../../constants/theme';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuthStore } from '../../store/authStore';
@@ -22,19 +23,14 @@ export default function Register() {
 
     try {
       await register(name, email, password);
-      router.replace('/(tabs)/home');
+      router.replace('/subscription');
     } catch (error) {
-      Alert.alert('Registration Failed', 'Please try again');
+      Alert.alert('Error', 'Registration failed. Please try again.');
     }
   };
 
   return (
     <ScrollView contentContainerStyle={[styles.container, { backgroundColor: colors.background }]}>
-      <View style={styles.logoContainer}>
-        <Text style={styles.logo}>🎓</Text>
-        <Text style={[styles.brandName, { color: colors.primary }]}>CodeLearn</Text>
-      </View>
-
       <View style={styles.headerSection}>
         <Text style={[styles.title, { color: colors.text }]}>Create Account</Text>
         <Text style={[styles.subtitle, { color: colors.textLight }]}>Start your learning journey today</Text>
@@ -96,12 +92,12 @@ export default function Register() {
 
       <View style={styles.socialButtons}>
         <TouchableOpacity style={[styles.socialButton, { backgroundColor: colors.cardBg, borderColor: colors.border }]}>
-          <Text style={styles.socialIcon}>🍎</Text>
+          <Ionicons name="logo-apple" size={20} color={colors.text} />
           <Text style={[styles.socialText, { color: colors.text }]}>Apple</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={[styles.socialButton, { backgroundColor: colors.cardBg, borderColor: colors.border }]}>
-          <Text style={styles.socialIcon}>G</Text>
+          <Ionicons name="logo-google" size={20} color={colors.text} />
           <Text style={[styles.socialText, { color: colors.text }]}>Google</Text>
         </TouchableOpacity>
       </View>
@@ -122,6 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     paddingHorizontal: SIZES.xl,
     paddingVertical: SIZES.xxxl,
+    justifyContent: 'center',
   },
   logoContainer: {
     alignItems: 'center',
@@ -138,16 +135,19 @@ const styles = StyleSheet.create({
   },
   headerSection: {
     marginBottom: SIZES.xl,
+    alignItems: 'center',
   },
   title: {
     fontSize: SIZES.h1,
     fontWeight: 'bold',
     color: COLORS.text,
     marginBottom: SIZES.sm,
+    textAlign: 'center',
   },
   subtitle: {
     fontSize: SIZES.body,
     color: COLORS.textLight,
+    textAlign: 'center',
   },
   form: {
     marginBottom: SIZES.xl,

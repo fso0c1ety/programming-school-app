@@ -10,6 +10,7 @@ A fully functional React Native mobile application for online programming course
 - **Search & Filter**: Real-time search and category-based filtering
 - **Video Player**: Full-featured video player with progress tracking
 - **Progress Tracking**: Track lesson completion and watch duration
+- **Coding Tasks**: Practical coding challenges with hints, test cases, and points system
 - **Dark Mode**: Complete theme support with light/dark mode toggle
 - **Responsive UI**: Beautiful, consistent design across all screens
 
@@ -46,12 +47,23 @@ A fully functional React Native mobile application for online programming course
 
 6. **Course Detail**
    - Complete course information
-   - Overview and curriculum tabs
+   - Overview, Curriculum, and Tasks tabs
    - Instructor details
    - Enroll/Continue buttons
    - Lesson list with completion status
+   - Practical coding challenges section
 
-7. **Video Player**
+7. **Coding Tasks**
+   - Hands-on coding challenges
+   - Difficulty levels (Easy, Medium, Hard)
+   - Points system (50-200 points per task)
+   - Progressive hints system
+   - Test cases for each task
+   - Built-in code editor
+   - Save draft functionality
+   - Task completion tracking
+
+8. **Video Player**
    - Full video playback with native controls
    - Progress tracking with auto-save
    - Next/Previous lesson navigation

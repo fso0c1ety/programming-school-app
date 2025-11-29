@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COLORS, SIZES, SHADOWS } from '../constants/theme';
 import { useTheme } from '../context/ThemeContext';
 
@@ -32,15 +33,17 @@ export default function Onboarding() {
   const router = useRouter();
   const { colors } = useTheme();
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (currentIndex < slides.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
+      await AsyncStorage.setItem('hasSeenOnboarding', 'true');
       router.push('/auth/login');
     }
   };
 
-  const handleSkip = () => {
+  const handleSkip = async () => {
+    await AsyncStorage.setItem('hasSeenOnboarding', 'true');
     router.push('/auth/login');
   };
 

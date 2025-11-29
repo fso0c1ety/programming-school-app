@@ -11,6 +11,16 @@ export interface Lesson {
   completed: boolean;
 }
 
+export interface Task {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  points: number;
+  hints?: string[];
+  testCases?: string[];
+}
+
 export interface Course {
   id: string;
   title: string;
@@ -30,6 +40,7 @@ export interface Course {
   popular: boolean;
   whatYouLearn: string[];
   curriculum: Lesson[];
+  tasks?: Task[];
 }
 
 interface CourseState {
