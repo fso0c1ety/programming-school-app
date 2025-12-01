@@ -4,6 +4,7 @@
   },
   "build": {
     "development": {
+      "credentialsSource": "local",
       "ios": {
         "buildConfiguration": "Release",
         "simulator": false,
