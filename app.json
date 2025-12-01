@@ -5,11 +5,19 @@
     "scheme": "programming-school-app",
     "version": "1.0.0",
     "icon": "./assets/logo2.png",
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "sdkVersion": "54.0.0",
     "orientation": "portrait",
-    "platforms": ["ios", "android", "web"],
-    "assetBundlePatterns": ["**/*"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "bundleIdentifier": "com.valon.programmingschool",
       "buildNumber": "1.0.0",
@@ -23,6 +31,13 @@
         "foregroundImage": "./assets/logo2.png",
         "backgroundColor": "#FFFFFF"
       }
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "dcfde6b4-ef66-4e56-8229-3a6d8e2d0133"
+      }
+    },
+    "owner": "codeplite"
   }
 }
