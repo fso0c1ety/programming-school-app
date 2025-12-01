@@ -29,12 +29,12 @@ jobs:
 
       - name: Configure Expo/EAS auth
         env:
-          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+          EXPO_TOKEN: ${{ secrets.EAS_TOKEN }}
         run: |
-          if [ -z "$EAS_TOKEN" ]; then
+          if [ -z "$EXPO_TOKEN" ]; then
             echo "EAS_TOKEN secret is missing"; exit 1;
           fi
-          eas whoami || eas login --token "$EAS_TOKEN"
+          eas whoami
 
       - name: Set Expo env
         run: |
@@ -42,7 +42,7 @@ jobs:
 
       - name: Build Android APK via EAS
         env:
-          EAS_TOKEN: ${{ secrets.EAS_TOKEN }}
+          EXPO_TOKEN: ${{ secrets.EAS_TOKEN }}
         run: |
           PROFILE=${{ github.event.inputs.profile }}
           echo "Building with profile: $PROFILE"
