@@ -492,6 +492,38 @@ Notes:
 - Changing bundle identifier or app name may require regenerating credentials via `eas credentials`.
 - Ad-hoc/internal installs fail if the device is not in the provisioning profile.
 
+## 📱 Build Android APK in GitHub Actions
+
+You can generate an Android APK for installation on any Android device using Expo EAS on GitHub Actions.
+
+### Requirements
+- Expo account and EAS token (`eas token:create`)
+
+### One-time setup
+1. Install and login locally:
+   - `npm install -g eas-cli`
+   - `eas login`
+2. Create an EAS token:
+   - `eas token:create` → copy the token
+
+### GitHub Secrets
+Add repository secret: `EAS_TOKEN` (the token from `eas token:create`)
+
+### Trigger the build
+1. Open GitHub → Actions → "Build Android APK (EAS)"
+2. Click "Run workflow" → choose profile (default `development`)
+3. Wait until completion; download the `.apk` artifact
+
+### Install on device
+- Download the `.apk` artifact from GitHub Actions
+- Transfer to your Android device (email, USB, cloud storage, etc.)
+- Open the APK on your device and allow installation from unknown sources when prompted
+- The app will install with your custom icon (logo2.png)
+
+Notes:
+- APK builds don't require signing for development/testing
+- For production distribution via Play Store, you'll need to build an AAB instead
+
 ## 📝 License
 
 This project is created for educational purposes.
