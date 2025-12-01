@@ -37,10 +37,5 @@
         "buildType": "apk"
       }
     }
-  },
-  "submit": {
-    "ios": {
-      "ascAppId": null
-    }
   }
 }
