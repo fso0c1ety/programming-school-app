@@ -40,6 +40,12 @@ jobs:
         run: |
           echo "EXPO_NO_TELEMETRY=1" >> $GITHUB_ENV
 
+      - name: Initialize EAS project
+        env:
+          EXPO_TOKEN: ${{ secrets.EAS_TOKEN }}
+        run: |
+          eas init --id $(uuidgen) --non-interactive || echo "Project may already be initialized"
+
       - name: Build Android APK via EAS
         env:
           EXPO_TOKEN: ${{ secrets.EAS_TOKEN }}
