@@ -40,6 +40,31 @@ jobs:
         run: |
           echo "EXPO_NO_TELEMETRY=1" >> $GITHUB_ENV
 
+      - name: Prepare Android keystore and credentials.json
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          if [ -z "$ANDROID_KEYSTORE_BASE64" ]; then echo "ANDROID_KEYSTORE_BASE64 secret missing"; exit 1; fi
+          if [ -z "$ANDROID_KEYSTORE_PASSWORD" ]; then echo "ANDROID_KEYSTORE_PASSWORD secret missing"; exit 1; fi
+          if [ -z "$ANDROID_KEY_ALIAS" ]; then echo "ANDROID_KEY_ALIAS secret missing"; exit 1; fi
+          if [ -z "$ANDROID_KEY_PASSWORD" ]; then echo "ANDROID_KEY_PASSWORD secret missing"; exit 1; fi
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > keystore.jks
+          cat > credentials.json <<EOF
+          {
+            "android": {
+              "keystore": {
+                "keystorePath": "keystore.jks",
+                "keystorePassword": "$ANDROID_KEYSTORE_PASSWORD",
+                "keyAlias": "$ANDROID_KEY_ALIAS",
+                "keyPassword": "$ANDROID_KEY_PASSWORD"
+              }
+            }
+          }
+          EOF
+
       - name: Initialize EAS project
         env:
           EXPO_TOKEN: ${{ secrets.EAS_TOKEN }}
